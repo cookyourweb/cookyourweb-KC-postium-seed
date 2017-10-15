@@ -237,3 +237,5 @@ Estamos acustumbrados al puñetero botón de like en todos los servicios web que
 ¿Has visto el icono de búsqueda que hay en la parte superior de **Postium**?. Pues no hace nada. Sería una buena idea que pudiesémos lanzar desde esa caja una búsqueda al servidor y pintar en una nueva vista el resultado: aquellos posts que contengan el texto indicado. La caja de búsqueda te la regalo; es un componente totalmente funcional que lanza un evento al presionar la tecla enter, y es la clase `SearchBoxComponent`. Queda hacer todo el flujo que desencadena esa tecla enter.
 
 **Pista:** echa un ojo a la documentación de [JSON Server](https://github.com/typicode/json-server), quizá la búsqueda por _like_ o _full-text_ te ayude.
+#   c o o k y o u r w e b - K C - p o s t i u m - s e e d  
+ 
