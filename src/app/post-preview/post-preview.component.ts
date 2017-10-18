@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Post } from '../post';
 
@@ -31,8 +31,19 @@ export class PostPreviewComponent {
   | además, un manejador para el mismo.                                      |
   |=========================================================================*/
 
-  plainTextToHtml(text: string): string {
-    return text ? `<p>${text.replace(/\n/gi, '</p><p>')}</p>` : '';
-  }
 
-}
+  @Output() postSelected: EventEmitter<Post> = new EventEmitter<Post>();
+
+    emitPostSelection (post: Post): void {
+      this.postSelected.emit(post);
+
+   }
+
+
+
+
+    plainTextToHtml(text: string): string {
+      return text ? `<p>${text.replace(/\n/gi, '</p><p>')}</p>` : '';
+    }
+
+  }
