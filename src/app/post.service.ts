@@ -123,8 +123,7 @@ export class PostService {
 
 
 
-  createPost(post: Post): Observable<Post> {  return null;
-  }
+
 
     /*=========================================================================|
     | Purple Path                                                              |
@@ -136,6 +135,8 @@ export class PostService {
     | inserción.                                                               |
     |=========================================================================*/
 
-
+    createPost(post: Post): Observable<Post> {
+      return this._http.post<Post>(`${environment.backendUri}/posts`, post);
+      }
 
 }

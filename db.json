@@ -280,6 +280,22 @@
         2
       ],
       "id": 10
+    },
+    {
+      "title": "Esta es mi historia",
+      "intro": "mi historia",
+      "body": "cuento mi historia",
+      "likes": [],
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "publicationDate": 1508439080375,
+      "id": 11
     }
   ],
   "categories": [

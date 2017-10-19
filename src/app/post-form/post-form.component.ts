@@ -1,16 +1,18 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Post } from '../post';
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-post-form',
   templateUrl: './post-form.component.html',
   styleUrls: ['./post-form.component.css']
 })
-export class PostFormComponent {
+export class PostFormComponent   {
 
   postForm: FormGroup;
 
@@ -32,8 +34,14 @@ export class PostFormComponent {
     | son obligatorios, así que recuerda añadir el validador oportuno.         |
     |=========================================================================*/
 
-    this.postForm = this._formBuilder.group({});
-  }
+
+      this.postForm = this._formBuilder.group({
+      title: ['', Validators.required],
+      intro: ['', Validators.required],
+      body: ''
+      });
+      }
+
 
   emitPostSubmitted(): void {
     const post: Post = this.postForm.value;
