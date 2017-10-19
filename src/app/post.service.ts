@@ -33,18 +33,18 @@ export class PostService {
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
 
-    const options = {
-      params: new HttpParams()
-        .set('_sort', 'publicationDate')
-        .set('_order', 'desc')
-        .set('publicationDate_lte', Date.now().toString())
-    };
+      const options = {
 
+        params: this.getDefaultParams()
 
-    return this._http.get<Post[]>(`${environment.backendUri}/posts`, options);
-  }
-
-  getUserPosts(id: number): Observable<Post[]> {
+      };
+      return this._http.get<Post[]>(`${environment.backendUri}/posts`, options);
+    }
+    private getDefaultParams() {
+      return new HttpParams().set('_sort', 'publicationDate')
+      .set('_order', 'DESC')
+      .set('publicationDate_lte', Date.now().toString());
+      }
 
     /*=========================================================================|
     | Red Path                                                                 |
@@ -66,8 +66,12 @@ export class PostService {
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
 
-     return this._http.get<Post[]>(`${environment.backendUri}/posts`);
-  }
+    getUserPosts(id: number): Observable<Post[]> {
+      const options = {
+      params: this.getDefaultParams().set('author.id', id.toString())
+      };
+      return this._http.get<Post[]>(`${environment.backendUri}/posts`, options);
+      }
 
   getCategoryPosts(id: number): Observable<Post[]> {
 

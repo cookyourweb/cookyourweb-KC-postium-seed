@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 
 import { NativeWindow } from '../window';
 import { Post } from '../post';
+//se inyecta la dependencia al router que es la que nos lleva a la vista deseada
+import { Router } from '@angular/router';
+import { User } from '../user';
 
 @Component({
   templateUrl: './post-details.component.html',
@@ -13,7 +16,10 @@ export class PostDetailsComponent implements OnInit {
   post: Post;
 
   constructor(
+    private _router: Router,
     private _activatedRoute: ActivatedRoute,
+
+
     @Inject(NativeWindow) private _window) { }
 
   ngOnInit(): void {
@@ -37,6 +43,9 @@ export class PostDetailsComponent implements OnInit {
   | inyectar como dependencia el Router de la app. La ruta a navegar es      |
   | '/posts/users', pasando como parámetro el identificador del autor.       |
   |=========================================================================*/
+  goToAuthorPosts(author: User): void {
+    this._router.navigate(['/posts/users', author.id]);
+    }
 
   /*=========================================================================|
   | Yellow Path                                                              |

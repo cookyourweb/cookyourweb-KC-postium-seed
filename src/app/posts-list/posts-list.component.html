@@ -5,7 +5,11 @@
 | Suscribe el componente PostPreviewComponent al evento que hayas definido |
 | en él para notificar los clics sobre los autores de los posts.           |
 |========================================================================-->
-
+<app-post-preview
+*ngFor="let post of posts"
+[post]="post"
+(authorSelected)="goToAuthorPosts($event)"
+(postSelected)="goToPostDetails($event)"></app-post-preview>
 <!--=======================================================================|
 | Green Path                                                               |
 |==========================================================================|
@@ -13,8 +17,10 @@
 | en él para notificar los clics sobre los posts.                          |
 |========================================================================-->
 
-
+<!--solo para el green, arriba green y red
 <app-post-preview
 *ngFor="let post of posts"
-[post]="post"(postSelected)="goToPostDetails($event)">
+[post]="post"
+(postSelected)="goToPostDetails($event)">
 </app-post-preview>
+ -->

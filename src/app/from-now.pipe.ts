@@ -18,7 +18,8 @@ import 'moment/locale/es';
     name: 'FromNow'
 })
 export class FromNowPipe implements PipeTransform {
-    transform(fecha: string): string {
-        return moment(fecha).fromNow();
+  transform(date: number): string {
+    return moment(date).fromNow();
+
     }
 }
