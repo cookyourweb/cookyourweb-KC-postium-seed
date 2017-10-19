@@ -6,6 +6,8 @@ import { Post } from '../post';
 //se inyecta la dependencia al router que es la que nos lleva a la vista deseada
 import { Router } from '@angular/router';
 import { User } from '../user';
+import { Category } from '../category';
+
 
 @Component({
   templateUrl: './post-details.component.html',
@@ -56,5 +58,7 @@ export class PostDetailsComponent implements OnInit {
   | '/posts/categories', pasando como parámetro el identificador de la       |
   | categoría.                                                               |
   |=========================================================================*/
-
+  goToCategoryPosts(category: Category): void {
+    this._router.navigate(['/posts/categories', category.id]);
+    }
 }

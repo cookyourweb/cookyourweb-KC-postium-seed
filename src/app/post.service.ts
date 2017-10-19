@@ -7,6 +7,8 @@ import 'rxjs/add/operator/map';
 import { environment } from '../environments/environment';
 import { Post } from './post';
 import { HttpParams } from "@angular/common/http";
+import { Category } from './category';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostService {
@@ -103,14 +105,26 @@ export class PostService {
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
 
-     return this._http.get<Post[]>(`${environment.backendUri}/posts`);
-  }
 
-  getPostDetails(id: number): Observable<Post> {
-    return this._http.get<Post>(`${environment.backendUri}/posts/${id}`);
-  }
 
-  createPost(post: Post): Observable<Post> {
+      const options = {
+      params: this.getDefaultParams()
+      };
+      return this._http
+      .get<Post[]>(`${environment.backendUri}/posts`, options)
+      .map((posts: Post[]) => {
+      return posts.filter((post: Post): boolean => {
+      return post.categories.find(
+      (category: Category): boolean => category.id === id
+      ) !== undefined;
+      });
+      });
+      }
+
+
+
+  createPost(post: Post): Observable<Post> {  return null;
+  }
 
     /*=========================================================================|
     | Purple Path                                                              |
@@ -122,7 +136,6 @@ export class PostService {
     | inserción.                                                               |
     |=========================================================================*/
 
-    return null;
-  }
+
 
 }
