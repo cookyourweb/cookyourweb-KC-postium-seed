@@ -6,12 +6,13 @@ import 'rxjs/add/operator/map';
 
 import { environment } from '../environments/environment';
 import { Post } from './post';
-import { HttpParams } from "@angular/common/http";
+import { HttpParams } from '@angular/common/http';
 import { Category } from './category';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostService {
+  getPostDetails: any;
 
   constructor(private _http: HttpClient) { }
 
