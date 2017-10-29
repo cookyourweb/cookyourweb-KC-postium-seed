@@ -296,6 +296,22 @@
       },
       "publicationDate": 1508439080375,
       "id": 11
+    },
+    {
+      "title": "Escribo una historia ",
+      "intro": "Introduzco una historia",
+      "body": "Cuanto una historia",
+      "likes": [],
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "publicationDate": 1509270016923,
+      "id": 12
     }
   ],
   "categories": [
